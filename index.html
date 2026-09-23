@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Blog Académico</title>
+    <title>Blog - Proyecto Interdisciplinario: Prevención y Uso de Repelente</title>
     <style>
         :root {
-            --bg-color: #f8f9fa;
+            --primary: #1e3a8a;
+            --secondary: #3b82f6;
+            --bg-color: #f3f4f6;
             --card-bg: #ffffff;
-            --text-main: #212529;
-            --text-muted: #6c757d;
-            --accent-color: #0d6efd;
-            --border-color: #dee2e6;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
         }
 
         body {
@@ -20,86 +21,115 @@
             color: var(--text-main);
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         header {
-            background-color: var(--card-bg);
-            border-bottom: 1px solid var(--border-color);
-            padding: 2rem 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 3rem 1rem;
             text-align: center;
         }
 
         header h1 {
             margin: 0 0 0.5rem 0;
-            font-size: 2rem;
-            color: var(--text-main);
+            font-size: 2.2rem;
         }
 
         header p {
-            color: var(--text-muted);
             margin: 0;
             font-size: 1.1rem;
+            opacity: 0.9;
         }
 
         .container {
-            max-width: 900px;
-            margin: 2rem auto;
+            max-width: 850px;
+            margin: -2rem auto 3rem auto;
             padding: 0 1rem;
         }
 
-        .profile-card {
+        section {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 2rem;
+            border-radius: 12px;
+            padding: 2.5rem;
             margin-bottom: 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
-        .profile-card h2 {
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
             margin-top: 0;
-            color: var(--text-main);
+            font-size: 1.5rem;
         }
 
-        .posts-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
+        h3 {
+            color: var(--secondary);
+            margin-top: 1.5rem;
         }
 
-        .post-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        p {
+            margin-bottom: 1.2rem;
         }
 
-        .post-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        ul, ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1.2rem;
         }
 
-        .post-card h3 {
-            margin-top: 0;
+        li {
             margin-bottom: 0.5rem;
         }
 
-        .post-card h3 a {
-            color: var(--accent-color);
-            text-decoration: none;
+        blockquote {
+            background: #eff6ff;
+            border-left: 4px solid var(--secondary);
+            margin: 1.5rem 0;
+            padding: 1rem 1.5rem;
+            font-style: italic;
+            color: #1e40af;
+            border-radius: 0 8px 8px 0;
         }
 
-        .post-card h3 a:hover {
-            text-decoration: underline;
-        }
-
-        .post-date {
-            font-size: 0.85rem;
-            color: var(--text-muted);
+        .accordion-item {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
             margin-bottom: 1rem;
-            display: block;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            background: #f8fafc;
+            padding: 1rem 1.25rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .accordion-body {
+            padding: 1.25rem;
+            background: white;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .card-item {
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.25rem;
+        }
+
+        .card-item h4 {
+            margin-top: 0;
+            color: var(--primary);
         }
 
         footer {
@@ -108,7 +138,6 @@
             color: var(--text-muted);
             font-size: 0.9rem;
             border-top: 1px solid var(--border-color);
-            margin-top: 3rem;
             background-color: var(--card-bg);
         }
     </style>
@@ -116,35 +145,181 @@
 <body>
 
     <header>
-        <h1>Mi Blog Personal y Académico</h1>
-        <p>Portafolio de actividades y proyectos del segundo trimestre</p>
+        <h1>Proyecto Interdisciplinario</h1>
+        <p>Prevención y Uso Correcto del Repelente | 1.º BGU</p>
     </header>
 
     <div class="container">
-        <!-- Sección de presentación -->
-        <section class="profile-card">
-            <h2>Sobre mí</h2>
-            <p>Hola, este espacio digital ha sido diseñado para documentar las tareas y asignaciones correspondientes al periodo académico actual, manteniendo una estructura limpia, organizada y accesible.</p>
+
+        <!-- SECCIÓN 01 -->
+        <section>
+            <h2>Presentación del proyecto</h2>
+            <p>Este trabajo nació de una pregunta sencilla que nos hicimos en clase: casi todos usamos repelente alguna vez, pero, ¿en verdad sabemos usarlo bien? A partir de esa duda, quienes formamos parte de Primero de Bachillerato decidimos investigar, comparar fuentes oficiales de salud y construir un material que explique, de forma clara, cómo protegernos correctamente de las picaduras de mosquitos.</p>
+            <p>Elegimos este tema porque Guayaquil es una ciudad cálida y húmeda, con lluvias que favorecen la presencia de mosquitos durante gran parte del año. Eso significa que el repelente no es un producto cualquiera: es una herramienta real de prevención que usamos —o deberíamos usar— de manera cotidiana, en casa, en el colegio y en actividades al aire libre.</p>
+            <p>Saber usarlo bien importa porque un producto mal aplicado pierde eficacia y puede generar riesgos innecesarios. Por eso nos propusimos consultar organismos de salud reconocidos, ordenar esa información y compartirla en un lenguaje que cualquier compañero, familia o vecino pueda entender sin necesidad de conocimientos médicos.</p>
+            <p>Con esta investigación buscamos, sobre todo, tres cosas: aprender a evaluar fuentes de información confiables, construir un hábito de prevención responsable dentro de nuestra comunidad educativa, y dejar un recurso útil que otros estudiantes puedan seguir usando después de nosotros.</p>
+            <blockquote>«Prevenir una picadura empieza por entender lo que estamos aplicando en nuestra piel.»</blockquote>
+            <p><strong>Equipo de investigación, 1.º BGU</strong></p>
         </section>
 
-        <!-- Listado de Entradas / Tareas -->
-        <section class="posts-grid">
-            <article class="post-card">
-                <span class="post-date">16 de septiembre de 2026</span>
-                <h3><a href="#">Tarea 01: Creación del Blog y Datos Iniciales</a></h3>
-                <p>Publicación inicial del blog escolar configurado con la estructura base, datos de presentación institucional y lineamientos solicitados para el segundo trimestre.</p>
-            </article>
-
-            <!-- Aquí puedes duplicar la estructura <article> para futuras tareas -->
-            <article class="post-card">
-                <span class="post-date">Próximamente</span>
-                <h3><a href="#">Próxima Tarea / Proyecto</a></h3>
-                <p>Espacio reservado para las siguientes entregas e investigaciones académicas del trimestre.</p>
-            </article>
+        <!-- SECCIÓN 02 -->
+        <section>
+            <h2>Conociendo el problema</h2>
+            <p>Antes de proponer cualquier recomendación, ordenamos nuestra investigación respondiendo cuatro preguntas guía. Así evitamos improvisar y construimos el proyecto sobre una base sólida.</p>
+            
+            <h3>¿Por qué se realiza esta investigación?</h3>
+            <p>Porque las picaduras de mosquito no son solo una molestia: en nuestra región pueden estar relacionadas con la transmisión de enfermedades como el dengue. Entender los riesgos y la manera correcta de usar un repelente es una forma concreta de cuidar nuestra salud y la de nuestra familia.</p>
+            
+            <h3>¿Para qué se realiza?</h3>
+            <p>Para generar conocimiento útil y hábitos responsables dentro de nuestra comunidad educativa: que se aplique el repelente de forma correcta, segura y con base en información oficial, y no solo por costumbre o por lo que "se dice" entre conocidos.</p>
+            
+            <h3>¿Bajo qué contexto se realiza?</h3>
+            <p>Guayaquil tiene un clima tropical, cálido y húmedo, con una temporada de lluvias que favorece la presencia del mosquito <em>Aedes aegypti</em>. En ese contexto ambiental, y como parte de una comunidad educativa que promueve la disciplina y el cuidado colectivo, investigar sobre prevención tiene sentido práctico y cotidiano.</p>
+            
+            <h3>¿Qué investigaron los estudiantes?</h3>
+            <p>Revisamos qué es un repelente, cómo funciona, cuándo y cómo aplicarlo, qué precauciones tomar y qué errores evitar. Todo el detalle de esta parte se explica a continuación.</p>
         </section>
+
+        <!-- SECCIÓN DE APRENDIZAJES / ACORDEONES -->
+        <section>
+            <h2>Lo que aprendimos, punto por punto</h2>
+            <p>Organizamos lo investigado en una estructura detallada:</p>
+
+            <div class="accordion-item">
+                <div class="accordion-header">01. ¿Qué es un repelente?</div>
+                <div class="accordion-body">Un repelente de insectos es una sustancia que se aplica sobre la piel expuesta o sobre la ropa con el fin de alejar a mosquitos y otros insectos, dificultando que se posen o piquen. No mata al insecto: lo que hace es interferir con su capacidad de detectarnos como posible fuente de alimento.</div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">02. ¿Para qué sirve?</div>
+                <div class="accordion-body">Sirve como una barrera de prevención frente a las picaduras y, con ello, frente al riesgo de contraer enfermedades transmitidas por mosquitos en zonas donde estos insectos son vectores activos, como ocurre en buena parte del territorio ecuatoriano.</div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">03. ¿Cómo funciona?</div>
+                <div class="accordion-body">Los repelentes registrados por organismos sanitarios contienen ingredientes activos —como DEET, icaridina (picaridina), IR3535 o aceite de eucalipto de limón— que actúan sobre los receptores con los que el mosquito detecta el calor corporal, el sudor y el dióxido de carbono que exhalamos. Mientras mayor sea la concentración del ingrediente activo, más prolongada suele ser la protección.</div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">04. ¿Cuándo debe utilizarse?</div>
+                <div class="accordion-body">Se recomienda usarlo al estar en exteriores o en espacios con presencia de mosquitos, especialmente en horas de mayor actividad del vector y durante la temporada de lluvias. También conviene reaplicarlo según el tiempo de protección que indique la etiqueta del producto.</div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">05. ¿Cómo debe aplicarse correctamente?</div>
+                <div class="accordion-body">
+                    <ul>
+                        <li>Aplicar sobre la piel expuesta y la ropa, evitando ojos, boca, heridas o piel irritada.</li>
+                        <li>Rociar primero en las manos si se trata de la cara, y luego extender con cuidado.</li>
+                        <li>No aplicar directamente debajo de la ropa.</li>
+                        <li>Si se usa también protector solar, el orden recomendado es: primero el protector solar y después el repelente.</li>
+                        <li>Lavar la piel con agua y jabón al llegar a un espacio cerrado.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">06. ¿Qué precauciones deben tenerse?</div>
+                <div class="accordion-body">En bebés y niños pequeños, así como en personas embarazadas, en período de lactancia o con alguna condición de salud particular, se recomienda consultar previamente con un profesional de la salud o farmacia antes de aplicar cualquier repelente. Conservar en su envase original lejos de niños pequeños.</div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">07. ¿Qué errores deben evitarse?</div>
+                <div class="accordion-body">
+                    <ul>
+                        <li>Aplicar el repelente sobre heridas, quemaduras solares o piel irritada.</li>
+                        <li>Rociarlo en espacios cerrados y mal ventilados, o cerca de alimentos.</li>
+                        <li>Usar un producto sin registro o autorización sanitaria visible en la etiqueta.</li>
+                        <li>Aplicarlo directamente sobre el rostro de niños pequeños.</li>
+                        <li>Reaplicar con más frecuencia de la indicada pensando que así "protege más".</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">08. La importancia de leer la etiqueta</div>
+                <div class="accordion-body">La etiqueta indica el ingrediente activo, su concentración, el tiempo de protección estimado, las edades recomendadas de uso, las advertencias y el número de registro sanitario. Leerla antes de comprar y aplicar es indispensable para un uso seguro y efectivo.</div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">09. Prevención vs. tratamiento: ¿es lo mismo?</div>
+                <div class="accordion-body">No. La prevención son las acciones tomadas antes de que ocurra un problema (usar repelente, eliminar criaderos). El tratamiento son las acciones médicas una vez que la enfermedad ya está presente. El repelente es puramente preventivo y no reemplaza la atención médica.</div>
+            </div>
+
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 1rem;"><em>La información de esta sección fue elaborada a partir de materiales de divulgación del Ministerio de Salud Pública del Ecuador, la Organización Panamericana de la Salud / OMS, los CDC de Estados Unidos y la Agencia de Protección Ambiental (EPA).</em></p>
+        </section>
+
+        <!-- SECCIÓN 03 -->
+        <section>
+            <h2>Materiales del proyecto</h2>
+            <p>Estos fueron los recursos que utilizamos para investigar, analizar y construir el producto final:</p>
+            <div class="grid-cards">
+                <div class="card-item"><h4>Repelente para mosquitos</h4><p>Producto comercial utilizado como objeto principal de estudio y análisis de etiqueta.</p></div>
+                <div class="card-item"><h4>Envases y etiquetas</h4><p>Empaques revisados para identificar ingredientes, advertencias y registro sanitario.</p></div>
+                <div class="card-item"><h4>Computadores y celulares</h4><p>Equipos usados para la búsqueda de información y redacción.</p></div>
+                <div class="card-item"><h4>Acceso a internet</h4><p>Consulta de portales oficiales de salud pública nacionales e internacionales.</p></div>
+                <div class="card-item"><h4>Fuentes bibliográficas</h4><p>Publicaciones de organismos de salud y guías informativas oficiales.</p></div>
+                <div class="card-item"><h4>Cuadernos y fichas</h4><p>Registro manual de hallazgos y preguntas guía del equipo.</p></div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 04 -->
+        <section>
+            <h2>Nuestra evidencia</h2>
+            <p>El proceso de investigación tuvo cuatro etapas documentadas por el equipo:</p>
+            <ol>
+                <li><strong>Investigación:</strong> Búsqueda de información en fuentes oficiales.</li>
+                <li><strong>Análisis:</strong> Revisión de etiquetas, características y recomendaciones.</li>
+                <li><strong>Elaboración:</strong> Creación del producto final de divulgación.</li>
+                <li><strong>Socialización:</strong> Presentación y exposición de resultados ante la comunidad.</li>
+            </ol>
+        </section>
+
+        <!-- SECCIÓN 05 -->
+        <section>
+            <h2>Nuestro producto</h2>
+            <p>Como resultado de la investigación, el equipo elaboró un recurso de comunicación dirigido a la comunidad educativa orientado a concientizar sobre el uso correcto del repelente y la prevención del dengue en Guayaquil.</p>
+        </section>
+
+        <!-- SECCIÓN 06 -->
+        <section>
+            <h2>Artículo de opinión: Prevenir también es aprender</h2>
+            <p>Cuando empezamos esta investigación pensábamos que hablar de repelente para mosquitos era hablar de algo menor, casi obvio. Terminamos entendiendo que detrás de un gesto tan simple —rociarse los brazos antes de salir— hay decisiones que sí importan: qué producto elegir, cómo aplicarlo, cuándo hacerlo y por qué.</p>
+            <p>Vivimos en Guayaquil, una ciudad donde el calor y la lluvia son parte del paisaje casi todo el año, y donde el mosquito <em>Aedes aegypti</em> no es un dato lejano de un libro de ciencias, sino un vecino incómodo de cualquier patio o parque. Por eso creemos que el uso adecuado del repelente no debería tratarse como un detalle, sino como una responsabilidad compartida.</p>
+            <p>Nos llamó la atención descubrir cuántos errores cometemos sin darnos cuenta: aplicar el producto sobre la piel irritada, reaplicarlo "porque sí", usarlo en exceso o simplemente no leer la etiqueta. Ninguno de esos errores nace de mala intención, sino de falta de información. Y ahí está el corazón del proyecto: la prevención empieza por informarse bien, no por suponer.</p>
+            <p>Como estudiantes de Primero de Bachillerato, esta investigación nos dejó una lección que va más allá del repelente: la importancia de contrastar lo que "se dice" con lo que confirman las fuentes oficiales de salud. Leamos la etiqueta antes de aplicar cualquier producto, compartamos lo que aprendimos y entendamos que prevenir también es cuidar a los demás.</p>
+        </section>
+
+        <!-- SECCIÓN 07 -->
+        <section>
+            <h2>¿Qué aprendimos? (Conclusiones)</h2>
+            <ol>
+                <li>Un repelente bien elegido y bien aplicado es una herramienta de prevención real frente a las picaduras de mosquito.</li>
+                <li>Leer la etiqueta antes de comprar y de aplicar el producto es uno de los hábitos más importantes y descuidados.</li>
+                <li>La prevención combina el uso correcto del repelente con ropa adecuada y la eliminación de criaderos de agua estancada.</li>
+                <li>Contrastar lo investigado con fuentes oficiales (MSP, OPS/OMS, CDC) es indispensable para construir contenido responsable.</li>
+                <li>Investigar en equipo nos permitió desarrollar pensamiento crítico y conciencia sobre nuestro papel en la salud comunitaria.</li>
+            </ol>
+        </section>
+
+        <!-- SECCIÓN 08 -->
+        <section>
+            <h2>Fuentes consultadas</h2>
+            <ul>
+                <li><strong>Ministerio de Salud Pública del Ecuador:</strong> «Ecuador en alerta para prevenir el contagio del dengue» (salud.gob.ec).</li>
+                <li><strong>Organización Panamericana de la Salud (OPS/OMS):</strong> «Dengue: síntomas, prevención y tratamiento» (paho.org).</li>
+                <li><strong>Centros para el Control y la Prevención de Enfermedades (CDC, EE. UU.):</strong> «Evite las picaduras de mosquitos» (cdc.gov/spanish).</li>
+                <li><strong>Agencia de Protección Ambiental de EE. UU. (EPA):</strong> «Encuentre el repelente de insectos adecuado» (espanol.epa.gov).</li>
+                <li><strong>MedlinePlus, Biblioteca Nacional de Medicina de EE. UU.:</strong> «Seguridad de los repelentes de insectos» (medlineplus.gov).</li>
+            </ul>
+        </section>
+
     </div>
 
     <footer>
-        <p>&copy; 2026 - Creado con fines académicos.</p>
-    </body>
+        <p>Unidad Educativa de las Fuerzas Armadas<br><strong>Liceo Naval de Guayaquil «Cmdte. Rafael Andrade Lalama»</strong></p>
+        <p style="margin-top: 1rem; font-size: 0.8rem;">&copy; 2026 - Proyecto Interdisciplinario de 1.º BGU</p>
+    </footer>
+
+</body>
 </html>
